@@ -1,23 +1,38 @@
+// import NextAuth from "next-auth";
+// import GoogleProvider from "next-auth/providers/google";
+
+// export const authOptions = {
+//   providers: [
+//     GoogleProvider({
+//       clientId: process.env.GOOGLE_ID,
+//       clientSecret: process.env.GOOGLE_SECRET,
+//     }),
+//   ],
+//   callbacks: {
+//     async session({ session, token }) {
+//       if (token) {
+//         session.user.id = token.sub; // Fix missing user ID
+//       }
+//       return session;
+//     },
+//   },
+//   secret: process.env.NEXTAUTH_SECRET,
+// };
+// const handler = NextAuth(authOptions);
+
+// export { handler as GET, handler as POST };
 import NextAuth from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 
 export const authOptions = {
   providers: [
     GoogleProvider({
-      clientId: process.env.GOOGLE_ID,
-      clientSecret: process.env.GOOGLE_SECRET,
+      clientId: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     }),
   ],
-  callbacks: {
-    async session({ session, token }) {
-      if (token) {
-        session.user.id = token.sub; // Fix missing user ID
-      }
-      return session;
-    },
-  },
-  secret: process.env.NEXTAUTH_SECRET,
+  secret: process.env.NEXTAUTH_SECRET, // ✅ Ensure this is set in Netlify
 };
-const handler = NextAuth(authOptions);
 
+const handler = NextAuth(authOptions);
 export { handler as GET, handler as POST };
