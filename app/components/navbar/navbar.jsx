@@ -81,7 +81,7 @@ export default function Navbar() {
                 showCancelButton: true,
                 confirmButtonColor: "#3085d6",
                 cancelButtonColor: "#d33",
-                confirmButtonText: "Yes, Logout it!",
+                confirmButtonText: "Yes, Logout!",
               }).then((result) => {
                 if (result.isConfirmed) {
                   Swal.fire({
