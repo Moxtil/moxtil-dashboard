@@ -1,16 +1,17 @@
+"use client";
 import styles from "./page.module.css";
 import AnalyticsGraph from "../components/LineGraph/AnalyticsGraph";
 import AnalyticsGraphFull from "../components/LineGraph/AnalyticsGraphFull";
 import MiniWeeklyGraph from "../components/LineGraph/MiniWeeklyGraph";
 import AnalyticsCard from "../components/AnalyticsCard/AnalyticsCard";
-import { getServerSession } from "next-auth";
 import HomePage from "../page";
+import { useAuth } from "../Firebase/AuthContext";
+import Home from "../page";
 
-export default async function Analytics() {
-  const session = await getServerSession();
-
-  if (!session) {
-    return <HomePage />;
+export default function Analytics() {
+  const { user } = useAuth();
+  if (!user) {
+    return <Home />;
   } else
     return (
       <div className={styles.mainContainer}>

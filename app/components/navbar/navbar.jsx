@@ -3,10 +3,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { FaHashtag } from "react-icons/fa";
 import { FaExpandArrowsAlt, FaCompressArrowsAlt } from "react-icons/fa";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import Swal from "sweetalert2";
 import { useState } from "react";
-import { signOut, useSession } from "next-auth/react";
+import { useAuth } from "@/app/Firebase/AuthContext";
+
 import {
   TbReportAnalytics,
   TbUsers,
@@ -14,34 +15,28 @@ import {
   TbLogout2,
   TbLayoutDashboard,
 } from "react-icons/tb";
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 
 //
 export default function Navbar() {
-  const { data: session, status } = useSession();
+  const { logOut, user } = useAuth();
 
   const path = usePathname();
   const [modeOn, setModeOn] = useState(false);
 
-  if (session) {
+  if (user) {
     return (
       <nav
-        className={session ? "navbar" : "navbarOffline"}
+        className="navbar"
         style={modeOn ? { height: "360px" } : { height: "70px" }}
       >
         <section className="userInfo">
-          <Image
-            src={session?.user?.image}
-            alt="profileImg"
-            width={60}
-            height={60}
-          />
+          <Image src={user?.photoURL} alt="profileImg" width={60} height={60} />
           <div>
             <h4>
               <FaHashtag />
-              {session?.user?.name}
+              {user?.displayName}
             </h4>
-            <p>{session?.user?.email}</p>
+            <p>{user?.email}</p>
           </div>
         </section>
         <section
@@ -88,9 +83,10 @@ export default function Navbar() {
                     title: "Logging Out!",
                     icon: "success",
                     showConfirmButton: false,
+                    timer: 500,
                   });
                   setTimeout(() => {
-                    signOut(authOptions);
+                    logOut();
                   }, 300);
                 }
               });

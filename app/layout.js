@@ -2,7 +2,7 @@ import { Poppins, Ubuntu } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/navbar/navbar";
 import GraphContext from "./analytics/graphContext";
-import NavWrappar from "./components/navbar/NavWrappar";
+import { AuthProvider } from "./Firebase/AuthContext";
 const ubuntu = Ubuntu({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -24,12 +24,14 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={`${ubuntu.className}`}>
         <GraphContext>
-          <div className="mainContainer">
-            <NavWrappar />
-            <div style={{ width: "100%" }} className="container">
-              {children}
+          <AuthProvider>
+            <div className="mainContainer">
+              <Navbar />
+              <div style={{ width: "100%" }} className="container">
+                {children}
+              </div>
             </div>
-          </div>
+          </AuthProvider>
         </GraphContext>
       </body>
     </html>

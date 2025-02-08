@@ -1,10 +1,8 @@
-"use client";
 import { FaArrowTrendUp, FaArrowTrendDown } from "react-icons/fa6";
 import LineGraph from "../components/LineGraph/LineGraph";
 import TallGraph from "../components/LineGraph/TallGraph";
-import LoginForm from "../login/page";
+import LoginForm from "../login/LoginForm";
 import styles from "../page.module.css";
-import { useSession } from "next-auth/react";
 const stats = [
   {
     id: 1,
@@ -29,43 +27,36 @@ const stats = [
   },
 ];
 export default function Home() {
-  const { data: session, status } = useSession();
-  if (status === "loading") return <div className="loader"></div>;
-
-  if (!session) {
-    return <LoginForm />;
-  } else {
-    return (
-      <div className={styles.mainContainer}>
-        <div className={styles.container}>
-          <div className={styles.stats}>
-            {stats.map((st) => {
-              return (
-                <div key={st.id}>
-                  <div>
-                    <p>{st.title}</p>
-                    <span
-                      style={
-                        st.increase
-                          ? { background: "#41bb41" }
-                          : { background: "#ff0000b3" }
-                      }
-                    >
-                      {st.increase ? <FaArrowTrendUp /> : <FaArrowTrendDown />}{" "}
-                      {st.rate}%
-                    </span>
-                  </div>
-                  <h4>${st.value}</h4>
+  return (
+    <div className={styles.mainContainer}>
+      <div className={styles.container}>
+        <div className={styles.stats}>
+          {stats.map((st) => {
+            return (
+              <div key={st.id}>
+                <div>
+                  <p>{st.title}</p>
+                  <span
+                    style={
+                      st.increase
+                        ? { background: "#41bb41" }
+                        : { background: "#ff0000b3" }
+                    }
+                  >
+                    {st.increase ? <FaArrowTrendUp /> : <FaArrowTrendDown />}{" "}
+                    {st.rate}%
+                  </span>
                 </div>
-              );
-            })}
-          </div>
-          <div className={styles.graph}>
-            <LineGraph />
-            <TallGraph />
-          </div>
+                <h4>${st.value}</h4>
+              </div>
+            );
+          })}
+        </div>
+        <div className={styles.graph}>
+          <LineGraph />
+          <TallGraph />
         </div>
       </div>
-    );
-  }
+    </div>
+  );
 }

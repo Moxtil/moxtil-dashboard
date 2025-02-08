@@ -1,65 +1,72 @@
 @media (min-width: 777px) {
-  .mainContainer {
-    margin-right: 200px;
+  .card {
+    transform: translate(-30%, 0);
   }
 }
-.mainContainer {
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #eee;
   padding: 12px;
 }
-.container {
-  max-width: 400px;
+.card {
   padding: 20px;
-  height: 350px;
-  margin: 50px auto;
   border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0px 0px 10px rgba(0 0 0 0.1);
   text-align: center;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  background: #fff;
-  margin: 15px auto;
+  width: 350px;
+  height: 400px;
 }
 .title {
-  font-size: 24px;
   margin-bottom: 20px;
 }
-.mainForm {
-  display: flex;
-  flex-direction: column;
-}
-input.inputs {
-  padding: 12px;
-  margin-bottom: 12px;
+.input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
   border: 1px solid #ccc;
-  border-radius: 6px;
+  border-radius: 5px;
   font-size: 16px;
+  background: #fff;
+  color: #222;
   outline: none;
-  background: #eee;
-  color: #333;
 }
-.signButton {
-  background-color: #0070f3;
-  color: #fff;
-  padding: 12px;
-  font-size: 16px;
+.signInButton {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
   border: none;
-  border-radius: 6px;
+  border-radius: 5px;
   cursor: pointer;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+.forget {
+  font-weight: 500;
+  color: #777;
+  text-align: left;
+  margin-bottom: 30px;
+  margin-top: 15px;
+  font-size: 14px;
+  font-family: "Poppins", sansSerif;
+  cursor: pointer;
+  text-decoration: underline;
 }
 .googleButton {
+  width: 100%;
+  padding: 10px;
+  background-color: #db4437;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 5px;
-  padding: 12px;
-  color: #eee;
-  background: rgb(255, 50, 50);
-  margin-top: 25px;
-  border: none;
-  width: 100%;
-  text-align: center;
-  font-size: 16px;
-  cursor: pointer;
-  transition: 0.25s ease all;
-}
-.googleButton:hover {
-  background-color: red;
+  gap: 6px;
 }

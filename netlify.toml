@@ -1,8 +1,0 @@
-[functions]
-  node_bundler = "esbuild"
-
-[build]
-  command = "next build"
-
-[[plugins]]
-  package = "@netlify/plugin-nextjs"
