@@ -1,12 +1,12 @@
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #eee;
+  --foreground: #222;
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #eee;
+    --foreground: #222;
   }
 }
 
@@ -19,9 +19,22 @@ body {
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.mainContainer {
+  display: flex;
+  gap: 10px;
+}
+@media (min-width: 777px) {
+  .container {
+    padding-left: 275px;
+  }
+}
+.container {
+  width: 100%;
+  height: 100%;
 }
 
 * {
@@ -39,4 +52,171 @@ a {
   html {
     color-scheme: dark;
   }
+}
+
+/*SideBar /  Navbar */
+
+nav.navbar {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: start;
+  gap: 20px;
+  padding: 12px;
+  background: #eee !important;
+  z-index: 200;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 260px;
+  border-right: 2px solid #666;
+}
+@media (min-width: 777px) {
+  nav.navbar {
+    height: 100vh !important;
+  }
+}
+nav section.userInfo {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 7px;
+  background-color: #cbcbcb64;
+  box-shadow: 0 0 7px #222;
+  border-radius: 10px;
+}
+nav section.userInfo > div > p {
+  margin-top: 10px;
+  font-size: 13px;
+  color: #666;
+}
+nav section.userInfo > div > h4 {
+  display: flex;
+  align-items: center;
+  color: #222;
+}
+
+nav .links {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: start;
+  gap: 17px;
+  width: 100%;
+}
+nav .links > p {
+  padding: 7px 12px;
+  color: #222;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+nav .links a,
+nav .links button {
+  width: 100%;
+  display: flex;
+  align-items: start;
+  gap: 7px;
+  font-size: 16px;
+  transition: 0.25s ease all;
+  cursor: pointer;
+  padding: 7px 12px;
+  border-radius: 5px;
+  color: #222;
+  font-weight: 500;
+  border: none;
+}
+nav .links button {
+  background-color: transparent;
+}
+nav .links a svg,
+nav .links button svg {
+  font-size: 20px;
+}
+
+nav .links a:hover,
+nav .links button:hover,
+nav .links .active {
+  background-color: #222;
+  color: #eee;
+}
+.menuSide {
+  display: none;
+  cursor: pointer;
+}
+@media (max-width: 776px) {
+  .menuSide {
+    display: block;
+  }
+  nav .links {
+    position: absolute;
+    top: 85px;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background-color: #eee;
+    overflow: hidden;
+    transition: 0.25s ease all;
+    border-bottom: 2px solid #222;
+    padding-inline: 12px;
+  }
+  .navbar {
+    position: relative !important;
+  }
+
+  nav.navbar {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    border: none;
+  }
+  .mainContainer {
+    flex-direction: column;
+  }
+}
+
+.recharts-default-legend {
+  margin-top: 35px !important;
+}
+/* HTML: <div class="loader"></div> */
+.loader {
+  margin: 300px auto;
+  width: 75px;
+  aspect-ratio: 1;
+  display: grid;
+  border-radius: 50%;
+  background: linear-gradient(
+        0deg,
+        rgb(0 0 0/50%) 30%,
+        #0000 0 70%,
+        rgb(0 0 0/100%) 0
+      )
+      50%/8% 100%,
+    linear-gradient(90deg, rgb(0 0 0/25%) 30%, #0000 0 70%, rgb(0 0 0/75%) 0)
+      50%/100% 8%;
+  background-repeat: no-repeat;
+  animation: l23 1s infinite steps(12);
+}
+.loader::before,
+.loader::after {
+  content: "";
+  grid-area: 1/1;
+  border-radius: 50%;
+  background: inherit;
+  opacity: 0.915;
+  transform: rotate(30deg);
+}
+.loader::after {
+  opacity: 0.83;
+  transform: rotate(60deg);
+}
+@keyframes l23 {
+  100% {
+    transform: rotate(1turn);
+  }
+}
+.recharts-layer {
+  font-size: 12px !important;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
 }

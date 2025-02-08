@@ -1,0 +1,64 @@
+@media (min-width: 777px) {
+  .mainContainer {
+    margin-right: 200px;
+  }
+}
+.mainContainer {
+  padding: 12px;
+}
+.container {
+  max-width: 400px;
+  padding: 20px;
+  height: 350px;
+  margin: 50px auto;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  background: #fff;
+  margin: 15px auto;
+}
+.title {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+.mainForm {
+  display: flex;
+  flex-direction: column;
+}
+input.inputs {
+  padding: 12px;
+  margin-bottom: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+  outline: none;
+  background: #eee;
+  color: #333;
+}
+.signButton {
+  background-color: #0070f3;
+  color: #fff;
+  padding: 12px;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.googleButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 12px;
+  background: rgb(255, 50, 50);
+  margin-top: 25px;
+  border: none;
+  width: 100%;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.25s ease all;
+}
+.googleButton:hover {
+  background-color: red;
+}

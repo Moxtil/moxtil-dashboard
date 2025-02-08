@@ -1,0 +1,66 @@
+.header h1 {
+  padding: 12px;
+  margin-block: 25px !important;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.mainContainer {
+  padding: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 12px;
+}
+.userCard {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border: 2px solid #bbb;
+  flex-grow: 1;
+  flex-basis: 250px;
+  border-radius: 4px;
+  width: 350px;
+}
+
+.userCard .topCard {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 12px;
+}
+.userCard .topCard img {
+  border-radius: 50%;
+}
+
+.userCard .topCard > div h4 {
+  font-weight: 500;
+}
+.userCard .topCard > div p {
+  font-size: 12px;
+  color: #777;
+  margin-top: 4px;
+}
+.userCard .userSocial {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+.userCard .userSocial svg {
+  font-size: 17px;
+}
+.userCard .userSocial p {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+.userCard .userSocial div {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  color: #333;
+  font-family: "Poppins", sans-serif;
+}
