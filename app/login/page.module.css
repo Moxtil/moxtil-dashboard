@@ -50,6 +50,7 @@ input.inputs {
   justify-content: center;
   gap: 5px;
   padding: 12px;
+  color: #eee;
   background: rgb(255, 50, 50);
   margin-top: 25px;
   border: none;
