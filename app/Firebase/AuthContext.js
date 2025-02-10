@@ -1,3 +1,5 @@
+// AuthContext.js
+
 "use client";
 import {
   onAuthStateChanged,

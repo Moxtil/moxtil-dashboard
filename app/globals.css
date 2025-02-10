@@ -147,6 +147,7 @@ nav .links .active {
 @media (max-width: 776px) {
   .menuSide {
     display: block;
+    transform: translateY(15px);
   }
   nav .links {
     position: absolute;
